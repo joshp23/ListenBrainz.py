@@ -18,10 +18,8 @@ if (args.notify):
 
 am = datetime.combine(datetime.today(), time.min)
 am_ts = str(int(am.timestamp()))
-pm = datetime.combine(datetime.today(), time.max)
-pm_ts = str(int(pm.timestamp()))
 
-url = 'http://api.listenbrainz.org/1/user/' + cfg.user + '/listens?max_ts=' + pm_ts + '&min_ts=' + am_ts
+url = 'http://api.listenbrainz.org/1/user/' + cfg.user + '/listens?min_ts=' + am_ts + '&count=1000'
 headers = {
  "User-Agent": "ListenBrainz.py/0.0.1 ( https://github.com/joshp23/ListenBrainz.py )", "Authorization": "Token {0}".format(cfg.api_key)
 }
